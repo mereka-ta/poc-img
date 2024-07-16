@@ -14,6 +14,7 @@ if ("virtualKeyboard" in navigator) {
       console.log("keyboard is shown");
       if (window.canSubmit) {
         submitBtn.style.display = "block";
+        submitBtn.style.bottom = `${parseFloat(`${height}`) + 5}px`;
       }
     } else {
       console.log("keyboard is hidden");

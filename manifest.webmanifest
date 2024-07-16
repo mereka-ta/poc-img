@@ -1,15 +1,15 @@
 {
-  "background_color": "red",
+  "background_color": "#bb2020",
   "description": "POC for form image",
   "display": "fullscreen",
   "icons": [
     {
-      "src": "icon/ico.png",
+      "src": "img/pwa-btn.png",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
   "name": "POC for Form Image",
-  "short_name": "POC",
+  "short_name": "POC Form",
   "start_url": "/poc-img/index.html"
 }
