@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Removal/Unserviceable Form</title>
+    <link href="style.css" rel="stylesheet" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <script src="index.js" defer></script>
+
+    <style>
+      body {
+        max-width: 100vw;
+        min-height: 100vh;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Roboto, sans-serif;
+      }
+      .container {
+        /* width: 600px; */
+        border: 1px solid #8d8d8d;
+        padding: 10px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .header {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        text-align: center;
+      }
+      .section {
+        margin-top: 10px;
+      }
+      .section input[type="text"],
+      .section textarea {
+        width: 100%;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+      }
+      .section label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .section .flex-row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .section .flex-row > div {
+        width: 48%;
+      }
+      .section .checkbox-group {
+        display: flex;
+        align-items: center;
+      }
+      .section .checkbox-group label {
+        margin-left: 5px;
+        margin-right: 20px;
+      }
+      .footer {
+        margin-top: 20px;
+      }
+      .footer .flex-row {
+        display: flex;
+        justify-content: space-between;
+      }
+      .footer .flex-row > div {
+        width: 48%;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      class="install-pwa-btn"
+      style="
+        position: absolute;
+        bottom: 10px;
+        left: calc(50vw - 45px);
+        border: none;
+        background: transparent;
+        opacity: 1;
+        transition: display 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        z-index: 100;
+        display: none;
+      "
+    >
+      <img
+        src="./img/pwa-btn.png"
+        style="
+          width: 75px;
+          height: auto;
+          box-shadow: -1px 2px 15px -1px rgba(0, 0, 0, 0.75);
+        "
+      />
+    </button>
+
+    <button
+      class="submit-btn"
+      style="
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+        border: none;
+        background: transparent;
+        opacity: 1;
+        transition: display 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        z-index: 90;
+        display: none;
+      "
+    >
+      <img src="./img/pwa-submit.png" style="width: 75px; height: auto" />
+    </button>
+    <div class="container">
+      <!-- <div class="header">
+        <h2>REMOVAL / UNSERVICEABLE</h2>
+      </div>
+      <div class="section">
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" />
+        <div class="flex-row">
+          <div>
+            <label for="part-number">Part Number</label>
+            <input type="text" id="part-number" name="part-number" />
+          </div>
+          <div>
+            <label for="serial-number">Serial Number</label>
+            <input type="text" id="serial-number" name="serial-number" />
+          </div>
+        </div>
+        <div class="flex-row">
+          <div>
+            <label for="aircraft">Aircraft</label>
+            <input type="text" id="aircraft" name="aircraft" />
+          </div>
+          <div>
+            <label for="position">Position</label>
+            <input type="text" id="position" name="position" />
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <h3>REASON FOR REMOVAL</h3>
+        <div class="checkbox-group">
+          <input type="checkbox" id="scheduled" name="scheduled" />
+          <label for="scheduled">Scheduled</label>
+          <input type="checkbox" id="unscheduled" name="unscheduled" />
+          <label for="unscheduled">Unscheduled</label>
+          <input type="checkbox" id="others" name="others" />
+          <label for="others">Others</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="tshooting" name="tshooting" />
+          <label for="tshooting">T/Shooting</label>
+          <input type="checkbox" id="removed" name="removed" />
+          <label for="removed">Removed Serviceable</label>
+        </div>
+        <textarea
+          id="removal-text"
+          name="removal-text"
+          rows="4"
+          placeholder="Removal Text"
+        ></textarea>
+      </div>
+      <div class="footer">
+        <div class="flex-row">
+          <div>
+            <label for="date">Date</label>
+            <input type="text" id="date" name="date" />
+          </div>
+          <div>
+            <label for="station">Station</label>
+            <input type="text" id="station" name="station" />
+          </div>
+        </div>
+        <div class="flex-row">
+          <div>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" />
+          </div>
+          <div>
+            <label for="certifying-stamp">Certifying Stamp</label>
+            <input type="text" id="certifying-stamp" name="certifying-stamp" />
+          </div>
+        </div>
+        <div class="flex-row">
+          <div>
+            <label for="signature">Signature</label>
+            <input type="text" id="signature" name="signature" />
+          </div>
+          <div>
+            <label for="others2">Others</label>
+            <input type="text" id="others2" name="others2" />
+          </div>
+        </div>
+        <div class="section">
+          <label for="documents"
+            >To attach documents related to the reason for removal (if
+            applicable)</label
+          >
+          <div class="checkbox-group">
+            <input type="checkbox" id="pfr" name="pfr" />
+            <label for="pfr">PFR Y N N/A</label>
+            <input type="checkbox" id="tsd" name="tsd" />
+            <label for="tsd">TSD Y N N/A</label>
+            <input type="checkbox" id="bite" name="bite" />
+            <label for="bite">BITE Y N N/A</label>
+          </div>
+        </div>
+      </div> -->
+
+      <div
+        style="
+          position: relative;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <img src="./img/usform.png" style="width: 95%; height: auto" />
+        <input
+          style="
+            position: absolute;
+            font-size: 10px;
+            top: 17%;
+            left: 12%;
+            width: 72%;
+            height: 7px;
+            border: none;
+            border-bottom: 1px dashed #8d8d8ddd;
+          "
+          onkeypress="
+            var e = window.event;
+            var keyCode = e.code || e.key;
+            window.canSubmit = false;
+            if (keyCode == 'Enter') {
+              const nextInput = document.querySelector('input:nth-of-type(2)');
+              if (nextInput) {
+                nextInput.focus();
+              }
+              return false;
+            }"
+        />
+        <input
+          style="
+            position: absolute;
+            font-size: 10px;
+            top: 21%;
+            left: 12%;
+            width: 72%;
+            height: 8px;
+            border: none;
+            border-bottom: 1px dashed #8d8d8ddd;
+          "
+          onkeypress="
+            var e = window.event;
+            var keyCode = e.code || e.key;
+            window.canSubmit = false;
+            if (keyCode == 'Enter') {
+              const nextInput = document.querySelector('input:nth-of-type(3)');
+              if (nextInput) {
+                nextInput.focus();
+              }
+              return false;
+            }"
+        />
+        <input
+          style="
+            position: absolute;
+            font-size: 10px;
+            top: 25.5%;
+            left: 12%;
+            width: 72%;
+            height: 7.5px;
+            border: none;
+            border-bottom: 1px dashed #8d8d8ddd;
+          "
+          onkeypress="
+            var e = window.event;
+            var keyCode = e.code || e.key;
+            window.canSubmit = true;
+            if (keyCode == 'Enter') {
+              const nextInput = document.querySelector('input:nth-of-type(1)');
+              if (nextInput) {
+                nextInput.focus();
+              }
+              return false;
+            }"
+        />
+      </div>
+    </div>
+  </body>
+</html>

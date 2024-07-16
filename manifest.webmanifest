@@ -1,0 +1,15 @@
+{
+  "background_color": "red",
+  "description": "POC for form image",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "icon/ico.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "name": "POC for Form Image",
+  "short_name": "POC",
+  "start_url": "/poc-img/index.html"
+}
